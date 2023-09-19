@@ -7,18 +7,25 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-  const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+  const byDateDesc = data?.focus.sort((a, b) =>{
+    const c = new Date(a.date);
+    const d =  new Date(b.date)
+    return d-c 
+    // En utilisant .sort de cette façon, nous pouvons trier les events par ordre décroissant
+    // c - d pour trier par ordre croissant
+  }
   );
   const nextCard = () => {
     setTimeout(
-      () => setIndex(index < byDateDesc.length ? index + 1 : 0),
+      () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0), 
+      // Le fait de prendre la taille du tableau et non de l'index du tableau a rajouté le slider blanc
       5000
     );
   };
   useEffect(() => {
     nextCard();
   });
+
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
@@ -45,7 +52,7 @@ const Slider = () => {
                   key={`${event.id}`}
                   type="radio"
                   name="radio-button"
-                  checked={idx === radioIdx}
+                  checked={index === radioIdx} // Check la radio qui à le même index que l'index de mon state
                 />
               ))}
             </div>
