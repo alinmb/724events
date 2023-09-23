@@ -7,17 +7,16 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-  const byDateDesc = data?.focus.sort((a, b) =>{
+  const byDateDesc = data?.focus.sort((a, b) => {
     const c = new Date(a.date);
-    const d =  new Date(b.date)
-    return d-c 
+    const d = new Date(b.date);
+    return d - c;
     // En utilisant .sort de cette façon, nous pouvons trier les events par ordre décroissant
     // c - d pour trier par ordre croissant
-  }
-  );
+  });
   const nextCard = () => {
     setTimeout(
-      () => setIndex(index < byDateDesc.length -1 ? index + 1 : 0), 
+      () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
       // Le fait de prendre la taille du tableau et non de l'index du tableau a rajouté le slider blanc
       5000
     );
