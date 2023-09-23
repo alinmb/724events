@@ -19,10 +19,13 @@ const Form = ({ onSuccess, onError }) => {
       try {
         await mockContactApi();
         setSending(false);
-        alert("Message envoyé avec succès");
+        // eslint-disable-next-line
+        // alert("Message envoyé - Test 2 !");
+        onSuccess();
       } catch (err) {
         setSending(false);
-        alert("Une erreur s'est produite");
+        // eslint-disable-next-line
+        // alert("Une erreur s'est produite");
         onError(err);
       }
     },
