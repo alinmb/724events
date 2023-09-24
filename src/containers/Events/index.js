@@ -13,6 +13,8 @@ const EventList = () => {
   const { data, error } = useData();
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  // Si aucune catégorie n'est séléctionné on recupère tous les evenements
+  // Sinon nous filtrons et recupèrons uniquement ceux du même type que la catégorie selectionné
   const filteredEvents = (
     (!type ? data?.events : data?.events.filter((evt) => evt.type === type)) ||
     []
@@ -26,7 +28,6 @@ const EventList = () => {
     return false;
   });
   const changeType = (evtType) => {
-    console.log("Quel type=", evtType);
     setCurrentPage(1);
     setType(evtType);
   };

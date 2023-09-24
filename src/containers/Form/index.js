@@ -20,12 +20,11 @@ const Form = ({ onSuccess, onError }) => {
         await mockContactApi();
         setSending(false);
         // eslint-disable-next-line
-        // alert("Message envoyé - Test 2 !");
+        // Ajout de onSucess() pour afficher la modal lorsque l'utilisateur envoi le forumaire avec succès
         onSuccess();
       } catch (err) {
         setSending(false);
         // eslint-disable-next-line
-        // alert("Une erreur s'est produite");
         onError(err);
       }
     },

@@ -13,4 +13,6 @@ export const MONTHS = {
   11: "décembre",
 };
 
+// Les mois doivent commencé à 0 et terminer à 11, et non de 1 à 12 pour pouvoir s'afficher correctement lors que la récuperation du mois dans un composant
+
 export const getMonth = (date) => MONTHS[date.getMonth()];
