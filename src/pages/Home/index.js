@@ -14,7 +14,8 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const { data } = useData();
-  const lastEvent = data.events ? data.events[data.events.length - 1] : null;
+  const lastEvent =
+    data && data.events ? data.events[data.events.length - 1] : null;
   return (
     <>
       <header>
