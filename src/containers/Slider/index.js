@@ -16,7 +16,8 @@ const Slider = () => {
   });
   const nextCard = () => {
     setTimeout(
-      () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
+      () =>
+        setIndex(byDateDesc && index < byDateDesc.length - 1 ? index + 1 : 0),
       // Le fait de prendre la taille du tableau et non de l'index du tableau a rajouté le slider blanc
       5000
     );
