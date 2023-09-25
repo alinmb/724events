@@ -24,21 +24,23 @@ describe("When Form is created", () => {
       await screen.findByText("Message envoyé !");
     });
   });
-
 });
 
-
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
-    // to implement
-  })
-  it("a list a people is displayed", () => {
-    // to implement
-  })
-  it("a footer is displayed", () => {
-    // to implement
-  })
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
-  })
+  it("renders 'Nos services' section", async () => {
+    render(<Home />);
+    await screen.findByText(
+      "Nous organisons des événements sur mesure partout dans le monde"
+    );
+  });
+  it("renders 'Nos réalisations' section", async () => {
+    render(<Home />);
+    await screen.findByText("Catégories");
+  });
+  it("renders 'Notre équipe' section", async () => {
+    render(<Home />);
+    await screen.findByText(
+      "Une équipe d’experts dédiés à l’ogranisation de vos événements"
+    );
+  });
 });
