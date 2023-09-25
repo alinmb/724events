@@ -27,19 +27,19 @@ describe("When Form is created", () => {
 });
 
 describe("When a page is created", () => {
-  it("renders 'Nos services' section", async () => {
+  it("renders 'Nos services' section", () => {
     render(<Home />);
-    await screen.findByText(
+    screen.findByText(
       "Nous organisons des événements sur mesure partout dans le monde"
     );
   });
-  it("renders 'Nos réalisations' section", async () => {
+  it("renders 'Nos réalisations' section", () => {
     render(<Home />);
-    await screen.findByText("Catégories");
+    screen.findByText("Catégories");
   });
-  it("renders 'Notre équipe' section", async () => {
+  it("renders 'Notre équipe' section", () => {
     render(<Home />);
-    await screen.findByText(
+    screen.findByText(
       "Une équipe d’experts dédiés à l’ogranisation de vos événements"
     );
   });
