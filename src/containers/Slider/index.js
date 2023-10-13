@@ -7,13 +7,11 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-  const byDateDesc = data?.focus.sort((a, b) => {
-    const c = new Date(a.date);
-    const d = new Date(b.date);
-    return d - c;
-    // En utilisant .sort de cette façon, nous pouvons trier les events par ordre décroissant
-    // c - d pour trier par ordre croissant
-  });
+  const byDateDesc = data?.focus.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+  // En utilisant .sort de cette façon, nous pouvons trier les events par ordre décroissant
+
   const nextCard = () => {
     setTimeout(
       () =>

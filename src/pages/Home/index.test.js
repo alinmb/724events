@@ -29,18 +29,33 @@ describe("When Form is created", () => {
 describe("When a page is created", () => {
   it("renders 'Nos services' section", () => {
     render(<Home />);
-    screen.findByText(
-      "Nous organisons des événements sur mesure partout dans le monde"
-    );
+    expect(
+      screen.getByText(
+        "Nous organisons des événements sur mesure partout dans le monde"
+      )
+    ).toBeInTheDocument();
   });
+
   it("renders 'Nos réalisations' section", () => {
     render(<Home />);
     screen.findByText("Catégories");
   });
+
   it("renders 'Notre équipe' section", () => {
     render(<Home />);
-    screen.findByText(
-      "Une équipe d’experts dédiés à l’ogranisation de vos événements"
-    );
+    expect(
+      screen.getByText(
+        "Une équipe d’experts dédiés à l’ogranisation de vos événements"
+      )
+    ).toBeInTheDocument();
+  });
+
+  it("renders 'Contactez nous' and 'Notre dernière préstation' ", () => {
+    render(<Home />);
+
+    const footer = screen.getByText("Contactez-nous").closest("footer");
+    expect(footer).toBeInTheDocument();
+    expect(screen.getByText("contact@77events.com")).toBeInTheDocument();
+    expect(screen.getByText("Notre dernière prestation")).toBeInTheDocument();
   });
 });

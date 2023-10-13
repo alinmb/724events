@@ -126,7 +126,7 @@ const Page = () => {
               title={lastEvent?.title}
               date={new Date(lastEvent?.date)}
               small
-              label="boom"
+              label="Soirée entreprise"
             />
           )}
         </div>
